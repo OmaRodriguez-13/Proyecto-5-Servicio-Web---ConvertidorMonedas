@@ -1,5 +1,6 @@
 import requests
 import json
+import tkinter as tk
 from tkinter import messagebox, simpledialog
 from tkinter import *
 
@@ -21,8 +22,8 @@ if server_port is None:
 
 def convertir():
     monto = monto_entry.get()
-    moneda1 = moneda1_entry.get()
-    moneda2 = moneda2_entry.get()
+    moneda1 = selected_option1.get()
+    moneda2 = selected_option2.get()
 
     # Construir la URL completa del servidor
     # 5000 se cambiaria por "server_port"
@@ -55,21 +56,28 @@ root.geometry("340x100")
 monto_label = Label(root, text="Monto (0.0):")
 monto_entry = Entry(root)
 
+options1 = ['MXN', 'USD', 'AUD', 'EUR', 'CAD', 'GBP', 'JPY', '']
+options2 = ['MXN', 'USD', 'AUD', 'EUR', 'CAD', 'GBP', 'JPY', '']
+
+selected_option1 = tk.StringVar()
+selected_option2 = tk.StringVar()
+
+
 moneda1_label = Label(root, text="Moneda origen:")
-moneda1_entry = Entry(root)
+moneda1 = tk.OptionMenu(root, selected_option1, *options1)
 
 moneda2_label = Label(root, text="Moneda destino:")
-moneda2_entry = Entry(root)
+moneda2 = tk.OptionMenu(root, selected_option2, *options2)
 
 # agregar los campos de entrada a la ventana
 monto_label.grid(row=1, column=2)
 monto_entry.grid(row=1, column=3)
 
 moneda1_label.grid(row=2, column=2)
-moneda1_entry.grid(row=2, column=3)
+moneda1.grid(row=2, column=3)
 
 moneda2_label.grid(row=3, column=2)
-moneda2_entry.grid(row=3, column=3)
+moneda2.grid(row=3, column=3)
 
 # agregar el botón de conversión
 convertir_button = Button(root, text="Convertir", command=convertir)
