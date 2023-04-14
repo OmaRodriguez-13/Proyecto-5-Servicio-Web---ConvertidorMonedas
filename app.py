@@ -15,7 +15,7 @@ def convertir(cantidad, de_moneda, a_moneda):
     conn = mysql.connector.connect(
     host="localhost",
     user="root",
-    password="",
+    password="MalaMedicina5",
     database="conversiones"
     )
 
@@ -50,4 +50,4 @@ def convertir(cantidad, de_moneda, a_moneda):
     return jsonify(message)
 
 if __name__ == '__main__':
-    app.run()
+    app.run(host='0.0.0.0')

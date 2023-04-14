@@ -11,15 +11,7 @@ if server_ip is None:
     # Si el usuario cancela el diálogo, salir del programa
     exit()
 
-# Obtener el puerto del servidor // aunque creo no se podrá
-server_port = simpledialog.askstring(
-    "Puerto del servidor", "Ingrese el puerto del servidor:")
-if server_port is None:
-    exit()
-
 # Crear el método para la conversión
-
-
 def convertir():
     monto = monto_entry.get()
     moneda1 = selected_option1.get()
