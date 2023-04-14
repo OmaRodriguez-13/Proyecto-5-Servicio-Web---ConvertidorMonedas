@@ -43,23 +43,46 @@ def convertir():
 # crear la ventana principal
 root = Tk()
 root.title("Conversión de Monedas")
-root.geometry("340x100")
+root.iconbitmap('divisa.ico')
+root.geometry("340x120")
 
 monto_label = Label(root, text="Monto (0.0):")
 monto_entry = Entry(root)
 
-options1 = ['MXN', 'USD', 'AUD', 'EUR', 'CAD', 'GBP', 'JPY', '']
-options2 = ['MXN', 'USD', 'AUD', 'EUR', 'CAD', 'GBP', 'JPY', '']
+options1 = ['MXN (PESO MEXICANO)', 'USD (DOLAR ESTADOUNIDENSE)', 'AUD (DOALR AUSTRALIANO)', 'EUR (EURO)', 'CAD (DOLAR CANADIENSE)', 'GBP (LIBRA ESTERLINA)', 'JPY (YEN JAPONES)', 'ARS (PESO ARGENTINO)', 'CNY (YUAN CHINO)', 'RUP (RUBLO RUSO)',  '']
+options2 = ['MXN (PESO MEXICANO)', 'USD (DOLAR ESTADOUNIDENSE)', 'AUD (DOALR AUSTRALIANO)', 'EUR (EURO)', 'CAD (DOLAR CANADIENSE)', 'GBP (LIBRA ESTERLINA)', 'JPY (YEN JAPONES)', 'ARS (PESO ARGENTINO)', 'CNY (YUAN CHINO)', 'RUP (RUBLO RUSO)',  '']
 
 selected_option1 = tk.StringVar()
 selected_option2 = tk.StringVar()
+selected_option1_or = tk.StringVar()
+selected_option2_or = tk.StringVar()
 
+def get_short_option(option):
+    return option[:3]
 
 moneda1_label = Label(root, text="Moneda origen:")
-moneda1 = tk.OptionMenu(root, selected_option1, *options1)
+moneda1 = tk.OptionMenu(root, selected_option1, *options1, command=lambda option: selected_option1.set(get_short_option(option)))
 
 moneda2_label = Label(root, text="Moneda destino:")
-moneda2 = tk.OptionMenu(root, selected_option2, *options2)
+moneda2 = tk.OptionMenu(root, selected_option2, *options2, command=lambda option: selected_option2.set(get_short_option(option)))
+
+
+
+def intercambiar_opciones():
+     # Obtenemos las opciones seleccionadas actualmente
+    opcion_1 = selected_option1_or.get()
+    opcion_2 = selected_option2_or.get()
+
+    # Obtenemos el índice de las opciones seleccionadas actualmente
+    index_opcion_1 = options1.index(opcion_1)
+    index_opcion_2 = options2.index(opcion_2)
+
+    # Intercambiamos las opciones
+    selected_option1.set(options2[index_opcion_2])
+    selected_option2.set(options1[index_opcion_1])
+
+intercambiar_btn = tk.Button(root, text="Intercambiar", command=intercambiar_opciones)
+intercambiar_btn.grid(row=2, column=1, pady=10)
 
 # agregar los campos de entrada a la ventana
 monto_label.grid(row=1, column=2)
