@@ -86,15 +86,14 @@ def convertirW(cantidad2, de_moneda2, a_moneda2):
     # Cerrar la conexión a la base de datos
     conn2.close()
 
-    # Devolver la respuesta
-    #return str(cantidad2) + ' ' + de_moneda2.upper() + ' equivale a ' + str(cantidad_convertida2) + ' ' + a_moneda2.upper()
+    # Devolver la respuesta #return str(cantidad2) + ' ' + de_moneda2.upper() + ' equivale a ' + str(cantidad_convertida2) + ' ' + a_moneda2.upper()
     response = jsonify(message)
     response.headers.add('Access-Control-Allow-Origin', '*')
     return response
-     # Devolver la respuesta como JSON
-    #return json.dumps(message)
 
 
 if __name__ == '__main__':
+    CORS(app, resources={r"/*": {"origins": "*"}}, supports_credentials=True)
     app.run(host='0.0.0.0')
-    CORS(app)
+    #CORS(app)
+    
