@@ -1,5 +1,7 @@
 import mysql.connector
-from flask import Flask, jsonify
+import json
+from flask import Flask, jsonify, request
+from flask_cors import CORS
 
 app = Flask(__name__)
 
@@ -15,7 +17,7 @@ def convertir(cantidad, de_moneda, a_moneda):
     conn = mysql.connector.connect(
     host="localhost",
     user="root",
-    password="tu_contrasena", 
+    password="MalaMedicina5", 
     database="conversiones"
     )
 
@@ -46,8 +48,53 @@ def convertir(cantidad, de_moneda, a_moneda):
     conn.close()
 
     # Devolver la respuesta
-    #return str(cantidad) + ' ' + de_moneda.upper() + ' equivale a ' + str(cantidad_convertida) + ' ' + a_moneda.upper()
     return jsonify(message)
+
+@app.route('/convertirweb/<float:cantidad2>/<de_moneda2>/<a_moneda2>')
+def convertirW(cantidad2, de_moneda2, a_moneda2):
+    # Conectarse a la base de datos
+    conn2 = mysql.connector.connect(
+    host="localhost",
+    user="root",
+    password="MalaMedicina5", 
+    database="conversiones"
+    )
+
+    cursor2 = conn2.cursor()
+
+    # Obtener la tasa de cambio de la base de datos
+    cursor2.execute('SELECT tasa_cambio FROM tasas_cambio WHERE moneda_origen = %s AND moneda_destino = %s', (de_moneda2.upper(), a_moneda2.upper()))
+    row = cursor2.fetchone()
+
+    # Verificar si se encontró una tasa de cambio
+    if row is None:
+        # Crear un diccionario con el mensaje de error
+        message = {'error': 'No se encontró una tasa de cambio para la conversión especificada'}
+    else:
+        # Calcular la cantidad convertida
+        tasa_cambio2 = row[0]
+        cantidad_convertida2 = cantidad2 * tasa_cambio2
+
+         # Crear un diccionario con el mensaje de respuesta
+        message = {
+            'cantidad': cantidad2,
+            'moneda_origen': de_moneda2.upper(),
+            'cantidad_convertida': cantidad_convertida2,
+            'moneda_destino': a_moneda2.upper()
+        }
+
+    # Cerrar la conexión a la base de datos
+    conn2.close()
+
+    # Devolver la respuesta
+    #return str(cantidad2) + ' ' + de_moneda2.upper() + ' equivale a ' + str(cantidad_convertida2) + ' ' + a_moneda2.upper()
+    response = jsonify(message)
+    response.headers.add('Access-Control-Allow-Origin', '*')
+    return response
+     # Devolver la respuesta como JSON
+    #return json.dumps(message)
+
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0')
+    CORS(app)

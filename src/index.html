@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Conversión de monedas</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #f0f0f0;
+      }
+
+      h1 {
+        margin-top: 28px;
+        text-align: center;
+      }
+
+      form {
+        background-color: #fff;
+        border-radius: 5px;
+        box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+        padding: 20px;
+        margin: 30px auto;
+        max-width: 600px;
+      }
+
+      label {
+        display: block;
+        margin-bottom: 10px;
+      }
+
+      input[type="text"],
+      select {
+        width: 100%;
+        padding: 10px;
+        border-radius: 5px;
+        border: 1px solid #ccc;
+        font-size: 16px;
+        margin-bottom: 20px;
+        box-sizing: border-box;
+      }
+
+      button {
+        background-color: #008cba;
+        color: #fff;
+        border-radius: 5px;
+        border: none;
+        padding: 10px 20px;
+        font-size: 16px;
+        cursor: pointer;
+        margin-top: 20px;
+      }
+
+      button:hover {
+        background-color: #005b82;
+      }
+
+      #resultado {
+        background-color: #fff;
+        border-radius: 5px;
+        box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+        padding: 20px;
+        margin: 30px auto;
+        max-width: 600px;
+        text-align: center;
+      }
+
+      #resultado p {
+        font-size: 18px;
+        margin: 0;
+      }
+
+      footer {
+        background-color: #333;
+        color: #fff;
+        text-align: center;
+        padding: 10px;
+        position: fixed;
+        bottom: 0;
+        width: 100%;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Bienvenido a la conversión de monedas</h1>
+    <form>
+      <label for="cantidad">Cantidad (0.0):</label>
+      <input type="text" id="cantidad" name="cantidad" pattern="[0-9]+(\.[0-9]+)?" title="Ingrese un número válido (p. ej. 10.50)" required><br><br>
+
+      <label for="de_moneda">De:</label>
+      <select name="de_moneda" id="de_moneda" required>
+        <option value="none">Seleccione una opción</option>
+        <option value="USD">USD (DOLAR ESTADOUNIDENSE)</option>
+        <option value="MXN">MXN (PESO MEXICANO)</option>
+        <option value="AUD">AUD (DOALR AUSTRALIANO)</option>
+        <option value="EUR">EUR (EURO)</option>
+        <option value="CAD">CAD (DOLAR CANADIENSE)</option>
+        <option value="GBP">GBP (LIBRA ESTERLINA)</option>
+        <option value="JPY">JPY (YEN JAPONES)</option>
+        <option value="ARS">ARS (PESO ARGENTINO)</option>
+        <option value="CNY">CNY (YUAN CHINO)</option>
+        <option value="RUP">RUP (RUBLO RUSO)</option>
+      </select>
+      <br />
+      <br>
+      <label for="a_moneda">A:</label>
+      <select name="a_moneda" id="a_moneda" required>
+        <option value="none">Seleccione una opción</option>
+        <option value="USD">USD (DOLAR ESTADOUNIDENSE)</option>
+        <option value="MXN">MXN (PESO MEXICANO)</option>
+        <option value="AUD">AUD (DOALR AUSTRALIANO)</option>
+        <option value="EUR">EUR (EURO)</option>
+        <option value="CAD">CAD (DOLAR CANADIENSE)</option>
+        <option value="GBP">GBP (LIBRA ESTERLINA)</option>
+        <option value="JPY">JPY (YEN JAPONES)</option>
+        <option value="ARS">ARS (PESO ARGENTINO)</option>
+        <option value="CNY">CNY (YUAN CHINO)</option>
+        <option value="RUP">RUP (RUBLO RUSO)</option>
+      </select>
+      <br />
+      <button type="button" onclick="convertirW()">Convertir</button>
+    </form>
+
+    <div id="resultado"></div>
+
+    <script>
+      function convertirW() {
+        var cantidad2 = document.getElementById("cantidad").value;
+        var deMoneda2 = document.getElementById("de_moneda").value;
+        var aMoneda2 = document.getElementById("a_moneda").value;
+
+        var xhr = new XMLHttpRequest();
+        xhr.open(
+          "GET",
+          "http://127.0.0.1:5000/convertirweb/" +
+            cantidad2 +
+            "/" +
+            deMoneda2 +
+            "/" +
+            aMoneda2,
+          true
+        );
+        xhr.onload = function () {
+          if (xhr.readyState === 4) {
+            if (xhr.status === 200) {
+              var resultado = document.getElementById("resultado");
+              var data = JSON.parse(xhr.responseText);
+              var mensaje =
+                "Convertir " +
+                data.cantidad +
+                " " +
+                data.moneda_origen +
+                " a " +
+                data.moneda_destino +
+                " da como resultado " +
+                data.cantidad_convertida +
+                " " +
+                data.moneda_destino +
+                ".";
+              resultado.innerHTML = "<p>" + mensaje + "</p>";
+            } else {
+              console.error(xhr.statusText);
+              alert("No existe tasa de cambio para su solicitud")
+            }
+          }
+        };
+        xhr.onerror = function () {
+          console.error(xhr.statusText);
+        };
+        xhr.send(null);
+      }
+    </script>
+  </body>
+  <footer>Derechos Reservados</footer>
+</html>
