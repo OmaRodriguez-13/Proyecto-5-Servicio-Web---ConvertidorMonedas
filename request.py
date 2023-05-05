@@ -67,23 +67,6 @@ moneda2_label = Label(root, text="Moneda destino:")
 moneda2 = tk.OptionMenu(root, selected_option2, *options2, command=lambda option: selected_option2.set(get_short_option(option)))
 
 
-
-def intercambiar_opciones():
-     # Obtenemos las opciones seleccionadas actualmente
-    opcion_1 = selected_option1_or.get()
-    opcion_2 = selected_option2_or.get()
-
-    # Obtenemos el índice de las opciones seleccionadas actualmente
-    index_opcion_1 = options1.index(opcion_1)
-    index_opcion_2 = options2.index(opcion_2)
-
-    # Intercambiamos las opciones
-    selected_option1.set(options2[index_opcion_2])
-    selected_option2.set(options1[index_opcion_1])
-
-intercambiar_btn = tk.Button(root, text="Intercambiar", command=intercambiar_opciones)
-intercambiar_btn.grid(row=2, column=1, pady=10)
-
 # agregar los campos de entrada a la ventana
 monto_label.grid(row=1, column=2)
 monto_entry.grid(row=1, column=3)
