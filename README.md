@@ -62,6 +62,8 @@ Buscar e instalar la extensión "Liver Server"
 
 Cambiar las lineas 18 a 21 en caso de ser necesario para que coincida con sus permisos de admin de la base de datos.
 
+[![local.png](https://i.postimg.cc/W3d06Ybg/local.png)](https://postimg.cc/qhdtpLKv)
+
 ## Ejecución
 
 ### Servidor
@@ -93,6 +95,7 @@ python request.py
 ```
 
 En la ventana siguiente deberá ingresar la ip del equipo que funciona como servidor.
+
 [![ip.png](https://i.postimg.cc/q7rX8x9v/ip.png)](https://postimg.cc/0ztwvDkT)
 
 ## Testeo
