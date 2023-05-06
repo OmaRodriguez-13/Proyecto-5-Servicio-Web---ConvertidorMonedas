@@ -26,19 +26,26 @@ git https://github.com/OmaRodriguez-13/Proyecto-5-Servicio-Web---ConvertidorMone
 #### MySQL Workbench 8.0 CE
 #### Editor de código (por ejemplo: [Visual Studio Code]
 #### Python 3.11.2
-#### Pyro4:
+
+#### requests:
 
 ```bash
 pip install requests
 ```
 
+#### json:
+
 ```bash
 pip install json
 ```
 
+#### Flask:
+
 ```bash
 pip install Flask flask-cors
 ```
+
+#### MySQL Connector Python:
 
 ```bash
 pip install mysql-connector-python
@@ -46,10 +53,10 @@ pip install mysql-connector-python
 
 ### Instrucciones de uso
 
-Cambie la linea 58 del archivo [index.html] por únicamente la ip de su equipo que tenga su equipo "servidor".
+Cambie la linea 135 del archivo [index.html] por únicamente la ip que tenga su equipo "servidor".
 Nota: Si usará el mismo equipo para ambos casos, entonces reemplanzarlo por "127.0.0.1".
 
-[![line58.png](https://i.postimg.cc/TPsVJVM5/line58.png)](https://postimg.cc/QBpKXWMj)
+[![ipindex.png](https://i.postimg.cc/qRmhYsg0/ipindex.png)](https://postimg.cc/S2MxYzWt)
 
 ```bash
 ipconfig
@@ -58,11 +65,15 @@ ipconfig
 
 Buscar e instalar la extensión "Liver Server"
 
+[![liveserver.png](https://i.postimg.cc/SQ2WCTgk/liveserver.png)](https://postimg.cc/rzT0LJ6P)
+
 ### Configuración de la base de datos
 
-Cambiar las lineas 18 a 21 en caso de ser necesario para que coincida con sus permisos de admin de la base de datos.
+1. Cambiar las lineas 18 a 21 en caso de ser necesario para que coincida con sus permisos de admin de la base de datos.
 
 [![local.png](https://i.postimg.cc/W3d06Ybg/local.png)](https://postimg.cc/qhdtpLKv)
+
+2. Importar la base de datos del archivo "import.sql".
 
 ## Ejecución
 
@@ -128,7 +139,7 @@ El usuario obtendrá una ventana emergente con el resultado de su conversión so
 
 ### Cliente [index.html]
 
-Abrir la página web (index.html) utilizando la extensión Live Server.
+Abrir la página web (index.html) dando click derecho y seleccionando la opción "Open with Live Server" de la extensión Live Server.
 
 [![open.png](https://i.postimg.cc/d0vCptQs/open.png)](https://postimg.cc/K1q4gbgw)
 
