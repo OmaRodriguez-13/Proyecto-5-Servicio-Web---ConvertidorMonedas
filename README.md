@@ -15,7 +15,7 @@ Descargar el zip que contiene los archivos fuente del proyecto.
 ### Vía git 
 
 ```bash
-git clone https://github.com/OmaRodriguez-13/Proyecto-5-Servicio-Web---ConvertidorMonedas
+git clone https://github.com/OmaRodriguez-13/Proyecto-5-Servicio-Web---ConvertidorMonedas.git
 ```
 
 ## Guía Rápida
