@@ -36,7 +36,7 @@ root.title("ADMINISTRADOR")
 root.iconbitmap('divisa.ico')
 root.geometry("340x120")
 
-monto_label = Label(root, text="Tasa de camnio (0.0):")
+monto_label = Label(root, text="Tasa de cambio (0.0):")
 tasa_entry = Entry(root)
 
 options1 = ['MXN (PESO MEXICANO)', 'USD (DOLAR ESTADOUNIDENSE)', 'AUD (DOLAR AUSTRALIANO)', 'EUR (EURO)', 'CAD (DOLAR CANADIENSE)', 'GBP (LIBRA ESTERLINA)', 'JPY (YEN JAPONES)', 'ARS (PESO ARGENTINO)', 'CNY (YUAN CHINO)', 'RUP (RUBLO RUSO)',  '']
