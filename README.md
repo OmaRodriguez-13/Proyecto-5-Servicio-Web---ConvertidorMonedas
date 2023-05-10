@@ -46,6 +46,14 @@ pip install json
 pip install Flask flask-cors
 ```
 
+```bash
+pip install Flask 
+```
+
+```bash
+pip install flask-cors
+```
+
 #### MySQL Connector Python:
 
 ```bash
@@ -72,9 +80,18 @@ Buscar e instalar la extensión "Liver Server"
 
 ### Configuración de la base de datos
 
-2. Importar la base de datos del archivo "import.sql".
+1. Importar la base de datos del archivo "import.sql".
 
-1. Cambiar las líneas 18 a 21; así como 57 a 60 en el archivo [app.py] en caso de ser necesario para que coincida con sus permisos de “admin” de la base de datos en MySQL Workbench.
+2. En caso de no ser posible la importación de la base de datos con el método anterior, utilizar el archivo “src/TASAS DE CONVERSION.sql”:
+- Utilizar o crear una nueva conexión.
+
+[![conexion.png](https://i.postimg.cc/vThCZKq9/conexion.png)](https://postimg.cc/jnWM8Mrd)
+
+- Ejecutar el comando para crear la base de datos “conversiones” y usarla.
+- Ejecutar el comando para crear la tabla “tasas_cambio”.
+- Ingresar los datos en la tabla.
+
+2. Cambiar las líneas 18 a 21; así como 57 a 60 en el archivo [app.py] en caso de ser necesario para adecuarlo con sus permisos de administrador de la base de datos en MySQL Workbench.
 
 [![local.png](https://i.postimg.cc/W3d06Ybg/local.png)](https://postimg.cc/qhdtpLKv)
 
