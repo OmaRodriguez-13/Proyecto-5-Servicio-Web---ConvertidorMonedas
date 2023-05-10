@@ -46,6 +46,14 @@ pip install json
 pip install Flask flask-cors
 ```
 
+```bash
+pip install Flask 
+```
+
+```bash
+pip install flask-cors
+```
+
 #### MySQL Connector Python:
 
 ```bash
