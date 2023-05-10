@@ -167,3 +167,29 @@ Abrir la página web (index.html) dando click derecho y seleccionando la opción
 En la página web, deberá introducir la cantidad a convertir, así como seleccionar las divisas correspondientes.
 
 [![index.png](https://i.postimg.cc/bvTnhcdQ/index.png)](https://postimg.cc/DWS0rNrZ)
+
+
+### Administrador [admin.py]
+
+Cambiar las líneas 9 a 12 en el archivo [admin.py] en caso de ser necesario para adecuarlo con sus permisos de administrador de la base de datos en MySQL Workbench.
+
+[![ad.png](https://i.postimg.cc/SRg7PRpM/ad.png)](https://postimg.cc/CnfqBF5h)
+
+Abra un terminal y ejecute [admin.py] con alguno de los siguientes comandos:
+
+
+```bash
+py admin.py
+```
+
+```bash
+python admin.py
+```
+
+[![cambio.png](https://i.postimg.cc/6pc2Lgt8/cambio.png)](https://postimg.cc/mPcgTdc4)
+
+Deberá ingresar la tasa de cambio nueva y seleccionar las monedas respectivas. Hecho esto, la base de datos se actualizará inmediatamente y podrá continuar realizando la conversión de monedas con las nuevas tasas de cambio.
+
+[![mod.png](https://i.postimg.cc/wv8ptxZL/mod.png)](https://postimg.cc/qtLYSrkv)
+
+[![nuevo.png](https://i.postimg.cc/fbsCk65k/nuevo.png)](https://postimg.cc/Xr2dz1R0)
