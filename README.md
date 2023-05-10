@@ -15,17 +15,18 @@ Descargar el zip que contiene los archivos fuente del proyecto.
 ### Vía git 
 
 ```bash
-git clone https://github.com/OmaRodriguez-13/Proyecto-5-Servicio-Web---ConvertidorMonedas
+git clone https://github.com/OmaRodriguez-13/Proyecto-5-Servicio-Web---ConvertidorMonedas.git
 ```
 
 ## Guía Rápida
 
 ### Requerimientos
 
-#### **Importante: Conexión a la misma red.**
-#### MySQL Workbench 8.0 CE
-#### Editor de código (por ejemplo: [Visual Studio Code]
-#### Python 3.11.2
+- Importante: Conexión a la misma red.
+- Desactivar Firewall de Windows para evitar cualquier error de conexión.
+- MySQL Workbench 8.0 CE.
+- Editor de código (por ejemplo: [Visual Studio Code]).
+- Python 3.11.2
 
 #### requests:
 
@@ -57,6 +58,8 @@ Cambie la linea 135 del archivo [index.html] por únicamente la ip que tenga su 
 Nota: Si usará el mismo equipo para ambos casos, entonces reemplanzarlo por "127.0.0.1".
 
 [![ipindex.png](https://i.postimg.cc/qRmhYsg0/ipindex.png)](https://postimg.cc/S2MxYzWt)
+
+Si no conoce su dirección ip de su equipo, puede usar el siguiente comando en cmd.
 
 ```bash
 ipconfig
