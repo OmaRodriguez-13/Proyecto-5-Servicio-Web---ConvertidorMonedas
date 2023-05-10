@@ -17,7 +17,7 @@ def convertir(cantidad, de_moneda, a_moneda):
     conn = mysql.connector.connect(
     host="localhost",
     user="root",
-    password="tucontrasena", 
+    password="", 
     database="conversiones"
     )
 
@@ -56,7 +56,7 @@ def convertirW(cantidad2, de_moneda2, a_moneda2):
     conn2 = mysql.connector.connect(
     host="localhost",
     user="root",
-    password="MalaMedicina5", 
+    password="", 
     database="conversiones"
     )
 

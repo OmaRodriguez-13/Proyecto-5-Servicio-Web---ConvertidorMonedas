@@ -1,6 +1,13 @@
 create database conversiones;
-
 use conversiones;
+
+CREATE TABLE `conversiones`.`tasas_cambio` (
+  `moneda_origen` VARCHAR(40) NOT NULL,
+  `moneda_destino` VARCHAR(40) NOT NULL,
+  `tasa_cambio` FLOAT NOT NULL,
+  PRIMARY KEY (`moneda_origen`, `moneda_destino`))
+ENGINE = InnoDB
+DEFAULT CHARACTER SET = utf8mb4;
 
 INSERT INTO tasas_cambio (moneda_origen, moneda_destino, tasa_cambio) VALUES
 /*DOLAR ESTADOUNIDENSE*/

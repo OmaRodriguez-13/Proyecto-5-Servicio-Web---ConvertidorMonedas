@@ -69,11 +69,12 @@ Buscar e instalar la extensión "Liver Server"
 
 ### Configuración de la base de datos
 
-1. Cambiar las lineas 18 a 21 en caso de ser necesario para que coincida con sus permisos de admin de la base de datos.
+2. Importar la base de datos del archivo "import.sql".
+
+1. Cambiar las líneas 18 a 21; así como 57 a 60 en el archivo [app.py] en caso de ser necesario para que coincida con sus permisos de “admin” de la base de datos en MySQL Workbench.
 
 [![local.png](https://i.postimg.cc/W3d06Ybg/local.png)](https://postimg.cc/qhdtpLKv)
 
-2. Importar la base de datos del archivo "import.sql".
 
 ## Ejecución
 
